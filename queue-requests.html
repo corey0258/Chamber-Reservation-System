@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>温箱预约系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/design-system.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/mobile-responsive.css">
+    <link rel="stylesheet" href="/css/browser-compatibility.css">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            /* 使用指定的 rgb(132, 147, 169) 色值渐变 */
+            background: linear-gradient(135deg, rgb(132, 147, 169) 0%, rgb(127, 142, 164) 100%);
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: none;
+            border-bottom: none;
+            box-shadow: none;
+        }
+        
+        .navbar .navbar-brand, 
+        .navbar .nav-link {
+            color: #fff !important;
+        }
+        
+        .navbar .nav-link:hover {
+            color: rgba(255,255,255,0.85) !important;
+        }
+        
+        .dropdown-menu {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border: none;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .hero-section {
+            padding: 3rem 0 1rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-cards {
+            padding: 2rem 0 4rem 0;
+            background: transparent;
+            position: relative;
+        }
+        
+        .feature-cards::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+        }
+        
+        .btn-hero {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn-hero:hover {
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .btn-hero-primary {
+            background: white;
+            color: var(--primary-color);
+            border: 2px solid white;
+        }
+        
+        .btn-hero-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-dark);
+        }
+        
+        .check-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .check-item i {
+            margin-right: 0.75rem;
+            color: #4ade80;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar-glass" data-bg-light="true">
+        <div class="container">
+            <a class="navbar-brand" href="/">温箱预约系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                    
+                </ul>
+                <ul class="navbar-nav align-items-center">
+                    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">登录</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">注册</a>
+                        </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-5 hero-card">
+                        <h1 class="display-4 fw-bold">温箱预约系统</h1>
+                        <p class="lead mb-4">温度测试设备预约管理平台</p>
+                        <div class="mb-4 text-start mx-auto" style="max-width: 420px;">
+                            <div class="check-item"><i class="fas fa-check"></i> 温箱设备在线预约</div>
+                            <div class="check-item"><i class="fas fa-check"></i> 项目信息管理</div>
+                            <div class="check-item"><i class="fas fa-check"></i> 预约冲突检测</div>
+                            <div class="check-item"><i class="fas fa-check"></i> 管理员审核管理</div>
+                            <div class="check-item"><i class="fas fa-check"></i> 移动端支持</div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            
+                                <a class="btn btn-hero btn-hero-primary me-3" href="/register" role="button">立即注册</a>
+                                <a class="btn btn-hero" href="/login" role="button">用户登录</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-cards">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card feature-card text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-thermometer-half fa-3x text-theme-primary mb-3"></i>
+                            <h5 class="card-title">多个温箱设备</h5>
+                            <p class="card-text">覆盖-45℃~120℃温度范围，满足不同测试需求</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-check fa-3x text-theme-success mb-3"></i>
+                            <h5 class="card-title">在线预约</h5>
+                            <p class="card-text">24小时在线预约，实时查看设备可用状态</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card text-center p-3">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-3x text-theme-warning mb-3"></i>
+                            <h5 class="card-title">冲突检测</h5>
+                            <p class="card-text">智能检测预约冲突，避免时间重叠</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+    </div><!-- /.content-wrapper -->
+</body>
+</html>

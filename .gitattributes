@@ -1,0 +1,27 @@
+# Normalize line endings to LF in repo
+* text eol=lf
+
+# Treat common binary files properly
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.tar binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+
+# Keep EJS/JS/CSS/HTML as text
+*.ejs text
+*.js text
+*.css text
+*.html text
+*.md text
+*.json text
+*.bat text eol=crlf

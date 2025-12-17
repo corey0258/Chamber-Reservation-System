@@ -1,0 +1,34 @@
+# Node.js / Web
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+coverage/
+dist/
+build/
+
+# Env & secrets
+.env
+cookies.txt
+
+# Databases & runtime data
+*.sqlite
+*.db
+exports/
+config/backups/
+
+# Generated portable packages / deployment artifacts
+portable-packages/
+
+# OS / Editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.tmp
+*.bak
+
+# Misc
+!portable-packages/.env.example

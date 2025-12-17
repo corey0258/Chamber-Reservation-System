@@ -1,0 +1,27 @@
+{
+  "deployment": {
+    "target_directory": "C:\\chamber-system-production",
+    "backup_before_deploy": true,
+    "preserve_data": true,
+    "preserve_config": true,
+    "exclude_files": [
+      "node_modules",
+      ".git",
+      "*.log",
+      "temp",
+      "uploads/temp"
+    ],
+    "preserve_files": [
+      "database.db",
+      ".env",
+      "config/system-config.json",
+      "uploads",
+      "backups"
+    ]
+  },
+  "services": {
+    "stop_command": "pm2 stop chamber-system",
+    "start_command": "pm2 start app.js --name chamber-system",
+    "restart_command": "pm2 restart chamber-system"
+  }
+}
